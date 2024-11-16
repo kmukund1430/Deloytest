@@ -1,0 +1,62 @@
+name: Deploy to L3
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      developer_name:
+        description: 'Developer name'
+        required: true
+        type: string
+      story_or_defect:
+        description: 'Story or defect'
+        required: true
+        type: string
+      sprint:
+        description: 'Choose the sprint'
+        required: true
+        type: choice
+        options:
+          - '2.2'
+          - '3.3'
+      team_email:
+        description: 'Choose team email'
+        required: true
+        type: choice
+        options:
+          - 'team1@example.com'
+          - 'team2@example.com'
+          - 'team3@example.com'
+          - 'team4@example.com'
+          - 'team5@example.com'
+          - 'team6@example.com'
+          - 'team7@example.com'
+      manual_steps:
+        description: 'Choose yes or no'
+        required: true
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
+      branch_exception:
+        description: 'Choose type'
+        required: true
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
+      comments:
+        description: 'Comments'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Hello World
+        run: echo "Hello World"
+      - name: Mark job as success
+        run: echo "Job completed successfully"
